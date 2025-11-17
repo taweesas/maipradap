@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>ลุงหมวยพันธุ์ไม้ | ร้านขายต้นไม้และไม้ประดับ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ร้านขายต้นไม้และไม้ประดับ เน้นไม้แต่งสวน ไม้ฟอกอากาศ พร้อมบริการให้คำแนะนำจัดสวน">
+  <style>
+    :root {
+      --green: #2f855a;
+      --green-light: #e6f4ec;
+      --dark: #1a202c;
+      --text: #2d3748;
+      --accent: #dd6b20;
+      --bg: #f7fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background-color: var(--bg);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo span.icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 2px solid var(--green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    /* Hero */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1rem 2.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background-color: var(--green-light);
+      color: var(--green);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin: 0 0 0.6rem;
+      color: var(--dark);
+    }
+
+    .hero p.lead {
+      margin-top: 0;
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+
+    .hero-buttons {
+      margin-top: 1.2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.6rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background-color: var(--green);
+      color: #fff;
+      box-shadow: 0 8px 20px rgba(47, 133, 90, 0.25);
+    }
+
+    .btn-primary:hover {
+      background-color: #276749;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background-color: #fff;
+      color: var(--dark);
+      border: 1px solid #cbd5e0;
+    }
+
+    .btn-outline:hover {
+      background-color: #edf2f7;
+    }
+
+    .hero-note {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: #718096;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-main-img {
+      border-radius: 1.2rem;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.22);
+      background: linear-gradient(135deg, #c6f6d5, #fefcbf);
+      aspect-ratio: 4 / 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+
+    .hero-main-img span {
+      font-size: 0.95rem;
+      color: #22543d;
+      text-align: center;
+    }
+
+    .floating-card {
+      position: absolute;
+      right: 4%;
+      bottom: -10px;
+      background-color: #fff;
+      padding: 0.65rem 0.9rem;
+      border-radius: 0.9rem;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
+      font-size: 0.75rem;
+      min-width: 180px;
+    }
+
+    .floating-card strong {
+      display: block;
+      margin-bottom: 0.15rem;
+      color: var(--green);
+    }
+
+    /* Sections */
+    section {
+      padding: 2.5rem 1rem;
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      color: var(--dark);
+    }
+
+    .section-subtitle {
+      font-size: 0.88rem;
+      color: #718096;
+      margin-bottom: 1.8rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+      font-size: 0.76rem;
+    }
+
+    .pill {
+      padding: 0.2rem 0.6rem;
+      background-color: #edf2f7;
+      border-radius: 999px;
+    }
+
+    .info-box {
+      background-color: #fff;
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      font-size: 0.8rem;
+    }
+
+    .info-box h3 {
+      margin-top: 0;
+      font-size: 0.95rem;
+      color: var(--green);
+    }
+
+    /* Products / Categories */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 0.9rem;
+      padding: 0.9rem;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.06);
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--dark);
+    }
+
+    .badge-soft {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background-color: var(--green-light);
+      color: var(--green);
+      margin-bottom: 0.2rem;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      border-radius: 0.8rem;
+      overflow: hidden;
+      background-color: #cbd5e0;
+      aspect-ratio: 4 / 3;
+      position: relative;
+    }
+
+    .gallery-item span {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #1a202c;
+      background: linear-gradient(135deg, rgba(237, 242, 247, 0.9), rgba(198, 246, 213, 0.9));
+      text-align: center;
+      padding: 0.6rem;
+    }
+
+    /* Location & Contact */
+    .two-cols {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .map-box {
+      background-color: #edf2f7;
+      border-radius: 1rem;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+
+    .map-placeholder {
+      padding: 1rem;
+      font-size: 0.8rem;
+    }
+
+    .map-placeholder strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-list {
+      font-size: 0.85rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .contact-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.45rem;
+      background-color: #edf2f7;
+      border-radius: 999px;
+      margin-left: 0.4rem;
+    }
+
+    .hours-table {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .hours-table td {
+      padding: 0.1rem 0;
+    }
+
+    .hours-table td:first-child {
+      width: 45%;
+      color: #4a5568;
+    }
+
+    /* Contact form & FAQ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.5rem;
+    }
+
+    form {
+      background-color: #fff;
+      border-radius: 1rem;
+      padding: 1rem;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      font-size: 0.8rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.78rem;
+      margin-bottom: 0.15rem;
+      color: #4a5568;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.45rem 0.6rem;
+      border-radius: 0.6rem;
+      border: 1px solid #cbd5e0;
+      font-family: inherit;
+      font-size: 0.8rem;
+      margin-bottom: 0.55rem;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .faq-list {
+      font-size: 0.8rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .faq-list li + li {
+      margin-top: 0.6rem;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .faq-a {
+      color: #4a5568;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e2e8f0;
+      padding: 1rem;
+      font-size: 0.76rem;
+      color: #718096;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    footer a {
+      color: var(--green);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero,
+      .about-grid,
+      .two-cols,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2rem;
+      }
+
+      .floating-card {
+        position: static;
+        margin-top: 0.7rem;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      nav ul {
+        display: none; /* simplified: no mobile menu for now */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">
+        <span class="icon">🌿</span>
+        ลุงหมวยพันธุ์ไม้
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#hero">หน้าแรก</a></li>
+          <li><a href="#about">เกี่ยวกับร้าน</a></li>
+          <li><a href="#products">สินค้าแนะนำ</a></li>
+          <li><a href="#gallery">แกลเลอรี</a></li>
+          <li><a href="#location">แผนที่ร้าน</a></li>
+          <li><a href="#contact">ติดต่อเรา</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main id="hero" class="hero">
+    <div>
+      <div class="badge">ไม้แต่งสวน • ไม้ฟอกอากาศ • กระถางสวยๆ</div>
+      <h1>ร้านไม้ประดับสำหรับแต่งบ้าน คาเฟ่ และมุมพักผ่อนของคุณ</h1>
+      <p class="lead">
+        ลุงหมวยพันธุ์ไม้ คัดต้นไม้สวยแข็งแรง ดูแลง่าย พร้อมให้คำแนะนำการจัดวางและดูแลต้นไม้
+        เหมาะสำหรับแต่งสวนหน้าบ้าน มุมทำงาน และร้านกาแฟ
+      </p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn btn-primary">ดูสินค้าแนะนำ</a>
+        <a href="#contact" class="btn btn-outline">ติดต่อสอบถาม</a>
+      </div>
+      <div class="hero-note">
+        เปิดบริการทุกวันเสาร์–อาทิตย์ และวันหยุดนักขัตฤกษ์ (สามารถนัดหมายวันอื่นล่วงหน้าได้)
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-main-img">
+        <!-- TODO: เปลี่ยนเป็นรูปจริงของร้าน เช่น <img src="images/shop-main.jpg" alt="ภาพบรรยากาศร้านไม้ประดับ"> -->
+        <span>พื้นที่สำหรับรูปหน้าร้าน หรือมุมสวนสวย ๆ ของร้านคุณ</span>
+      </div>
+      <div class="floating-card">
+        <strong>มุมแนะนำประจำเดือน</strong>
+        ชุดไม้ฟอกอากาศสำหรับคอนโด + กระถางเซรามิก<br>
+        <em>เริ่มต้นชุดละ 4xx บาท</em>
+      </div>
+    </div>
+  </main>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-inner">
+      <h2 class="section-title">เกี่ยวกับร้านลุงหมวยพันธุ์ไม้</h2>
+      <p class="section-subtitle">
+        ร้านไม้ประดับขนาดอบอุ่น เน้นต้นไม้แต่งสวนและไม้ฟอกอากาศ ให้คำแนะนำอย่างเป็นกันเอง
+      </p>
+
+      <div class="about-grid">
+        <div>
+          <p>
+            เราเชื่อว่าต้นไม้ที่ดีจะทำให้บ้านและมุมโปรดของคุณน่าอยู่ขึ้น
+            ไม่ว่าจะเป็นหน้าบ้าน ระเบียงคอนโด หรือมุมกาแฟเล็ก ๆ ในสวน
+            ทางร้านคัดต้นไม้ที่แข็งแรง ดูแลง่าย เหมาะกับสภาพแสงและพื้นที่ของลูกค้าแต่ละท่าน
+          </p>
+          <p>
+            หากคุณยังไม่แน่ใจว่าจะเริ่มต้นจากต้นไหนดี สามารถแวะมาปรึกษาที่ร้าน
+            หรือส่งรูปมุมบ้าน/ร้านของคุณมาพูดคุยกันทาง Line ได้เลย เราพร้อมแนะนำแบบไม่ยัดเยียดขายของ 🙂
+          </p>
+
+          <div class="pill-list">
+            <span class="pill">เน้นไม้แต่งสวนหน้าบ้าน</span>
+            <span class="pill">ต้นไม้ฟอกอากาศ ดูแลง่าย</span>
+            <span class="pill">จัดชุดต้นไม้สำหรับคาเฟ่</span>
+            <span class="pill">บริการแนะนำการจัดวางต้นไม้</span>
+          </div>
+        </div>
+        <div class="info-box">
+          <h3>จุดเด่นของร้าน</h3>
+          <ul>
+            <li>คัดต้นไม้สดใหม่จากสวน ดูแลให้อีกครั้งก่อนถึงมือลูกค้า</li>
+            <li>ให้คำแนะนำตามงบ และพื้นที่จริงของลูกค้า</li>
+            <li>มีบริการจัดชุดต้นไม้สำหรับแต่งบ้าน และมุมถ่ายรูป</li>
+            <li>มีบริการช่วยขนลงจากรถและจัดวางเบื้องต้นในระยะใกล้ร้าน</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products / Categories -->
+  <section id="products">
+    <div class="section-inner">
+      <h2 class="section-title">หมวดหมู่ต้นไม้และสินค้าแนะนำ</h2>
+      <p class="section-subtitle">
+        สามารถสอบถามสต็อกจริงและถ่ายรูปเพิ่มเติมให้ดูผ่าน Line ได้
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <span class="badge-soft">ยอดนิยม</span>
+          <h3>ต้นไม้ฟอกอากาศในบ้าน</h3>
+          <p>
+            เช่น ลิ้นมังกร ยางอินเดีย มอนสเตอร่า กล้วยไม้อากาศ
+            เหมาะกับวางในห้องนั่งเล่นหรือห้องทำงาน
+          </p>
+          <p><strong>เหมาะกับ:</strong> คอนโด, บ้านที่มีแสงรำไร</p>
+        </article>
+
+        <article class="card">
+          <span class="badge-soft">แนะนำ</span>
+          <h3>ไม้แต่งสวนหน้าบ้าน</h3>
+          <p>
+            ไม้พุ่ม ไม้คลุมดิน และไม้ดอกสีสันสดใส สำหรับจัดขอบทางเดิน
+            และมุมสวนเล็ก ๆ หน้าโรงรถ
+          </p>
+          <p><strong>บริการเสริม:</strong> แนะนำการจัด layout เบื้องต้น</p>
+        </article>
+
+        <article class="card">
+          <span class="badge-soft">สำหรับร้านกาแฟ</span>
+          <h3>ชุดต้นไม้แต่งคาเฟ่</h3>
+          <p>
+            จัดชุดต้นไม้พร้อมกระถาง สำหรับแต่งเคาน์เตอร์ มุมถ่ายรูป
+            และมุมหน้าร้านให้เข้ากับสไตล์ร้าน
+          </p>
+          <p><strong>เหมาะกับ:</strong> คาเฟ่, ร้านอาหาร, โฮมคาเฟ่</p>
+        </article>
+
+        <article class="card">
+          <span class="badge-soft">ของแต่งเพิ่ม</span>
+          <h3>กระถาง & อุปกรณ์</h3>
+          <p>
+            กระถางเซรามิก ดินปลูก หินโรย ระแนงไม้ และของตกแต่งเล็ก ๆ
+            เพื่อให้มุมต้นไม้ของคุณจบครบในที่เดียว
+          </p>
+          <p><strong>หมายเหตุ:</strong> สินค้าบางอย่างมีจำนวนจำกัด</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="section-inner">
+      <h2 class="section-title">แกลเลอรีบรรยากาศร้านและผลงาน</h2>
+      <p class="section-subtitle">
+        ตัวอย่างมุมสวนและการจัดต้นไม้บางส่วนของลูกค้า (เปลี่ยนรูปด้านล่างเป็นรูปจริงของร้านได้)
+      </p>
+
+      <div class="gallery-grid">
+        <!-- TODO: เปลี่ยน span เป็น <img src="images/xxx.jpg" alt="..."> -->
+        <div class="gallery-item">
+          <span>รูปที่ 1: หน้าร้าน / ป้ายร้าน</span>
+        </div>
+        <div class="gallery-item">
+          <span>รูปที่ 2: มุมต้นไม้ฟอกอากาศ</span>
+        </div>
+        <div class="gallery-item">
+          <span>รูปที่ 3: มุมต้นไม้แต่งสวนหน้าบ้าน</span>
+        </div>
+        <div class="gallery-item">
+          <span>รูปที่ 4: จัดชุดต้นไม้สำหรับคาเฟ่</span>
+        </div>
+        <div class="gallery-item">
+          <span>รูปที่ 5: ตัวอย่างมุมถ่ายรูป</span>
+        </div>
+        <div class="gallery-item">
+          <span>รูปที่ 6: มุมรวมต้นไม้ในร้าน</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section id="location">
+    <div class="section-inner">
+      <h2 class="section-title">แผนที่และการเดินทาง</h2>
+      <p class="section-subtitle">
+        สามารถกดเปิดใน Google Maps เพื่อดูเส้นทางจากตำแหน่งปัจจุบันของคุณ
+      </p>
+
+      <div class="two-cols">
+        <div class="map-box">
+          <!-- 
+          TODO: เปลี่ยน src เป็นลิงก์ Google Maps ของร้านจริง
+          วิธี: เปิด Google Maps > ร้านของคุณ > แชร์ > ฝังแผนที่ > คัดลอก iframe มาวางแทนด้านล่าง
+          -->
+          <div class="map-placeholder">
+            <strong>ตัวอย่างตำแหน่งร้าน</strong>
+            <p>
+              ที่อยู่: 123 หมู่ x ถนนตัวอย่าง แขวง/ตำบล ตัวอย่าง เขต/อำเภอ ตัวอย่าง
+              จังหวัดตัวอย่าง 10xxx<br>
+              <a href="#" target="_blank">เปิดใน Google Maps</a>
+            </p>
+            <p style="font-size:0.78rem;color:#4a5568;">
+              * ตรงนี้สามารถเปลี่ยนเป็นแผนที่แบบฝัง (iframe) จาก Google Maps ได้
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin-top:0;font-size:1rem;color:var(--dark);">เวลาเปิด–ปิด</h3>
+          <table class="hours-table">
+            <tr>
+              <td>จันทร์ – ศุกร์</td>
+              <td>นัดหมายล่วงหน้า</td>
+            </tr>
+            <tr>
+              <td>เสาร์ – อาทิตย์</td>
+              <td>09:00 – 18:00 น.</td>
+            </tr>
+            <tr>
+              <td>วันหยุดนักขัตฤกษ์</td>
+              <td>กรุณาเช็คที่หน้าเพจหรือทัก Line</td>
+            </tr>
+          </table>
+
+          <h3 style="font-size:1rem;margin-top:1.2rem;color:var(--dark);">เหมาะสำหรับ</h3>
+          <ul class="contact-list">
+            <li>เจ้าของบ้านที่อยากเริ่มแต่งสวนเล็ก ๆ หน้า หรือหลังบ้าน</li>
+            <li>คอนโด/ทาวน์โฮมที่ต้องการต้นไม้ฟอกอากาศ ดูแลง่าย</li>
+            <li>คาเฟ่และร้านอาหารที่ต้องการมุมถ่ายรูปเพิ่ม</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact & FAQ -->
+  <section id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">ติดต่อร้านลุงหมวยพันธุ์ไม้</h2>
+      <p class="section-subtitle">
+        สอบถามต้นไม้ที่มีในสต็อก ขอรูปเพิ่มเติม หรือขอคำแนะนำการจัดมุมสวนได้เลย
+      </p>
+
+      <div class="contact-grid">
+        <div>
+          <ul class="contact-list">
+            <li><strong>โทร:</strong> 08x-xxx-xxxx</li>
+            <li><strong>Line:</strong> @lungmuay-plant <span class="tag">แนะนำ</span></li>
+            <li><strong>Facebook Page:</strong> ลุงหมวยพันธุ์ไม้</li>
+            <li><strong>อีเมล:</strong> example@email.com</li>
+          </ul>
+
+          <form action="mailto:example@email.com" method="post">
+            <p style="margin-top:0;margin-bottom:0.6rem;font-weight:600;">ส่งข้อความหาเรา</p>
+            <label for="name">ชื่อของคุณ</label>
+            <input type="text" id="name" name="name" placeholder="เช่น คุณตั้ม">
+
+            <label for="contact">ช่องทางติดต่อกลับ</label>
+            <input type="text" id="contact" name="contact" placeholder="เบอร์โทร หรือ Line ID">
+
+            <label for="message">ข้อความ</label>
+            <textarea id="message" name="message" placeholder="ต้องการต้นไม้แบบไหน พื้นที่ประมาณเท่าไหร่ งบประมาณคร่าว ๆ"></textarea>
+
+            <button type="submit" class="btn btn-primary">ส่งข้อความ</button>
+            <p style="font-size:0.7rem;color:#718096;margin-top:0.4rem;">
+              * แบบฟอร์มนี้จะเปิดโปรแกรมอีเมลในเครื่องคุณ เพื่อส่งเมลมาหาทางร้าน
+            </p>
+          </form>
+        </div>
+        <div>
+          <h3 style="margin-top:0;font-size:1rem;color:var(--dark);">คำถามที่พบบ่อย</h3>
+          <ul class="faq-list">
+            <li>
+              <div class="faq-q">มีบริการจัดส่งไหม?</div>
+              <div class="faq-a">
+                มีบริการจัดส่งในระยะใกล้ร้าน (คิดค่าบริการตามระยะทาง) และสามารถเรียกรถรับ–ส่งต้นไม้ผ่านแอพได้
+              </div>
+            </li>
+            <li>
+              <div class="faq-q">ถ้าไม่มีความรู้เรื่องต้นไม้อยู่เลย จะเริ่มยังไงดี?</div>
+              <div class="faq-a">
+                แนะนำให้ส่งรูปมุมบ้านหรือมุมที่อยากวางต้นไม้มาให้เราดูก่อน
+                แล้วเราจะช่วยแนะนำไม้ที่ดูแลง่ายและเหมาะกับแสงให้ครับ
+              </div>
+            </li>
+            <li>
+              <div class="faq-q">มีบริการจัดชุดต้นไม้พร้อมกระถางให้เลยไหม?</div>
+              <div class="faq-a">
+                มีครับ สามารถบอกงบประมาณคร่าว ๆ และสไตล์ที่ชอบ
+                เช่น มินิมอล เขียวชอุ่ม หรือเน้นไม้ดอก ทางร้านจะช่วยจัดชุดให้
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © <span id="year"></span> ลุงหมวยพันธุ์ไม้ — ร้านไม้ประดับเพื่อบ้านและมุมพักผ่อนของคุณ
+    · Designed with ♡ โดยเจ้าของร้าน
+  </footer>
+
+  <script>
+    // อัพเดตปีปัจจุบันอัตโนมัติ
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
