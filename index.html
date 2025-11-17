@@ -328,9 +328,9 @@
     .gallery-item img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center;
-      background-color: #fff; /* กันขอบโปร่ง */
+      object-fit: cover;       /* ครอบเต็มช่อง */
+      object-position: center; /* จัดกลางแนวตั้ง–แนวนอน */
+      display: block;
     }
 
     .gallery-item span {
@@ -677,22 +677,27 @@
         <!-- TODO: เปลี่ยน span เป็น <img src="images/xxx.jpg" alt="..."> -->
         <div class="gallery-item">
           <!-- <span>รูปที่ 1: หน้าร้าน / ป้ายร้าน</span> -->
-          <img src="images/20251116_091810.jpg" alt="หน้าร้าน / ป้ายร้าน">
+          <img src="images/cover.jpg" alt="หน้าร้าน / ป้ายร้าน">
         </div>
         <div class="gallery-item">
-          <span>รูปที่ 2: มุมต้นไม้ฟอกอากาศ</span>
+          <!-- <span>รูปที่ 2: มุมต้นไม้ฟอกอากาศ</span> -->
+          <img src="images/photo01.png" alt="มุมกว้างด้านบน">
         </div>
         <div class="gallery-item">
-          <span>รูปที่ 3: มุมต้นไม้แต่งสวนหน้าบ้าน</span>
+          <!-- <span>รูปที่ 3: มุมต้นไม้แต่งสวนหน้าบ้าน</span> -->
+          <img src="images/photo02.png" alt="มุมใกล้ต้นไม้เดี่ยว">
         </div>
         <div class="gallery-item">
-          <span>รูปที่ 4: จัดชุดต้นไม้สำหรับคาเฟ่</span>
+          <!-- <span>รูปที่ 4: จัดชุดต้นไม้สำหรับคาเฟ่</span> -->
+          <img src="images/photo04.png" alt="มุมเฉียงระยะกลาง">
         </div>
         <div class="gallery-item">
-          <span>รูปที่ 5: ตัวอย่างมุมถ่ายรูป</span>
+          <!-- <span>รูปที่ 5: ตัวอย่างมุมถ่ายรูป</span> -->
+          <img src="images/photo05.png" alt="มุมต่ำเงยขึ้น">
         </div>
         <div class="gallery-item">
-          <span>รูปที่ 6: มุมรวมต้นไม้ในร้าน</span>
+          <!-- <span>รูปที่ 6: มุมรวมต้นไม้ในร้าน</span> -->
+          <img src="images/photo06.png" alt="มุมกว้างด้านข้าง">
         </div>
       </div>
     </div>
